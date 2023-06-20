@@ -20,7 +20,7 @@ function Get-YouTubeVideo {
     [switch] $Raw
   )
 
-  $Parts = 'contentDetails,id,liveStreamingDetails,localizations,player,recordingDetails,snippet,statistics,status,topicDetails'
+  $Parts = 'contentDetails,fileDetails,id,liveStreamingDetails,localizations,player,processingDetails,recordingDetails,snippet,statistics,status,suggestions,topicDetails'
   $Uri = 'https://www.googleapis.com/youtube/v3/videos?part={0}&maxResults=50' -f $Parts
   
   if ($PSCmdlet.ParameterSetName -eq 'VideoById') { $Uri += '&id={0}' -f ($Id -join ',') }
