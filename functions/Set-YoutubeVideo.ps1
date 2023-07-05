@@ -29,7 +29,7 @@ function Set-YouTubeVideo {
 
     Write-Verbose "Getting video from API"
     $currentVideo = Get-YouTubeVideo -Id $VideoId -Raw
-    Write-Verbose ($currentVideo | ConvertTo-Json)
+    Write-Verbose ($currentVideo | ConvertTo-Json -Depth 10)
     $Uri = "https://www.googleapis.com/youtube/v3/videos?part=snippet,status&id=$VideoId"
   
     $Body = @{
