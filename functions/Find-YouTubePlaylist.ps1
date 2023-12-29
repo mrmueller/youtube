@@ -1,7 +1,9 @@
-function Find-YouTubeChannel {
+function Find-YouTubePlaylist {
   <#
   .SYNOPSIS
-  Search for YouTube channels based on a query term.
+  Find a YouTube video playlist, using a search.
+
+
   #>
   [CmdletBinding()]
   param (
@@ -11,7 +13,7 @@ function Find-YouTubeChannel {
     [string] $PageToken,
     [switch] $Raw
   )
-  $Uri = 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=channel&maxResults=50&q={0}' -f $Query
+  $Uri = 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=playlist&maxResults=50&q={0}' -f $Query
   if ($PageToken) {
     $Uri += '&pageToken={0}' -f $PageToken
   }
@@ -20,6 +22,6 @@ function Find-YouTubeChannel {
   
   if ($PSBoundParameters.ContainsKey('Raw')) { return $Result }
 
-  $Result.Items | ForEach-Object -Process { $PSItem.PSTypeNames.Add('YouTube.Search.ChannelResult') }
+  $Result.Items | ForEach-Object -Process { $PSItem.PSTypeNames.Add('YouTube.Search.PlaylistResult') }
   $Result.Items
 }

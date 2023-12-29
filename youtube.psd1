@@ -13,6 +13,7 @@
     'Grant-YouTubeOauth'
     'Find-YouTubeVideo'
     'Find-YouTubeChannel'
+    'Find-YouTubePlaylist'
     'Get-YouTubeVideo'
     'Set-YouTubeConfiguration'
     'Get-YouTubeCommentThread'
